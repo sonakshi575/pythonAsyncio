@@ -1,15 +1,17 @@
 import asyncio
 
-async def sample(delay, text):
+
+async def delayedPrint(delay, text):
     i = 0
-    while(i<5):
+    while(i < 5):
         await asyncio.sleep(delay)
         print(text)
-        i+=1
+        i += 1
+
 
 async def main():
-    task1=asyncio.create_task(sample(2, "Hello"))
-    task2=asyncio.create_task(sample(2, "World"))
+    task1 = asyncio.create_task(delayedPrint(2, "First"))
+    task2 = asyncio.create_task(delayedPrint(2, "Second"))
 
     await task1
     await task2
